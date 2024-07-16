@@ -1,4 +1,4 @@
-vector<int> SieveOfEratosthenes(int n)
+vector<bool> SieveOfEratosthenes(int n)
 {
     vector<bool> prime(n + 1, true);
     for (int p = 2; p * p <= n; p++) 
