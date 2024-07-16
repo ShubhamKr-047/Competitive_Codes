@@ -45,5 +45,4 @@ int euler_otient_function__using_sieve(int num)
             }
         }
     }
-    debug(phi);
 }
