@@ -1,44 +1,24 @@
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#define FASTIO ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL)
+#define FAST_IO ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL)
 
 #include <bits/stdc++.h>
 using namespace std;
 
-#define INF 2e9
+#define INF 2e18
 #define endl '\n'
 #define MOD 1000000007
-#define lld long double
-#define ll long long int
-#define ull unsigned long long
-#define tcT template <class T>
-#define sz(x) ((int)(x).size())
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
+#define int long long int
+#define pi pair<int, int>
+#define double long double
+#define sz(x) ((int)size(x))
+#define all(x) begin(x), end(x)
+#define rall(x) rbegin(x), rend(x)
 
-#define mine(a) (*min_element((a).begin(), (a).end()))
-#define maxe(a) (*max_element((a).begin(), (a).end()))
-#define cnt(a, x) (count((a).begin(), (a).end(), (x)))
-#define sum(a) (accumulate((a).begin(), (a).end(), 0LL))
-#define minp(a) (min_element((a).begin(), (a).end()) - (a).begin())
-#define maxp(a) (max_element((a).begin(), (a).end()) - (a).begin())
-
-tcT int lb(vector<T> &a, const T &b) { return int(lower_bound(all(a), b) - begin(a)); }
-tcT int ub(vector<T> &a, const T &b) { return int(upper_bound(all(a), b) - begin(a)); }
-
-tcT void operator>>(istream &obj, vector<T> &vec)
-{
-    for (auto &it : vec)
-        obj >> it;
-}
-
-tcT void operator<<(ostream &obj, vector<T> &vec)
-{
-    for (auto &it : vec)
-        obj << it << ' ';
-    cout << endl;
-}
+template <class T> void remove_duplicate(vector<T> &vec) { sort(all(vec)); vec.erase(unique(all(vec)), end(vec)); }
+template <class T> void operator>>(istream &obj, vector<T> &vec) { for (int i = 0; i < sz(vec); i++) obj >> vec[i]; }
+template <class T> void operator<<(ostream &obj, vector<T> &vec) { for (int i = 0; i < sz(vec); i++) obj << vec[i] << " \n"[i == sz(vec) - 1]; }
 
 #ifndef ONLINE_JUDGE
 #include "algo/debug.h"
@@ -48,12 +28,16 @@ tcT void operator<<(ostream &obj, vector<T> &vec)
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    cin >> v;
     
 }
 
-int main()
+int32_t main()
 {
-    FASTIO;
+    FAST_IO;
     int test_case;
     cin >> test_case;
     for (int tc = 1; tc <= test_case; tc++)
