@@ -8,7 +8,7 @@ MOD should be a prime number
 
 */
 
-int N = 100001;
+int N = 200001;
 vector<int> factorial(N);
 
 int binary_exponentiation(int a, int b)
@@ -23,6 +23,7 @@ int binary_exponentiation(int a, int b)
     return result;
 }
 
+//run this function in int main to generate all the factorial beforehand
 void calculate_factorial()
 {
     factorial[0] = factorial[1] = 1;
