@@ -10,15 +10,15 @@ using namespace std;
 #define endl '\n'
 #define MOD 1000000007
 #define int long long int
-#define pi pair<int, int>
+#define sz(x) (int)size(x)
 #define double long double
-#define sz(x) ((int)size(x))
 #define all(x) begin(x), end(x)
 #define rall(x) rbegin(x), rend(x)
 
 template <class T> void remove_duplicate(vector<T> &vec) { sort(all(vec)); vec.erase(unique(all(vec)), end(vec)); }
 template <class T> void operator>>(istream &obj, vector<T> &vec) { for (int i = 0; i < sz(vec); i++) obj >> vec[i]; }
 template <class T> void operator<<(ostream &obj, vector<T> &vec) { for (int i = 0; i < sz(vec); i++) obj << vec[i] << " \n"[i == sz(vec) - 1]; }
+template <class T> vector<T> sort_indexes(vector<T> &v) { vector<T> idx(sz(v)); iota(all(idx), 0); stable_sort(all(idx), [&v](T i1, T i2){ return v[i1] < v[i2]; }); sort(all(v)); return idx; }
 
 #ifndef ONLINE_JUDGE
 #include "algo/debug.h"
@@ -32,7 +32,7 @@ void solve()
     cin >> n;
     vector<int> v(n);
     cin >> v;
-    
+
 }
 
 int32_t main()
@@ -40,8 +40,5 @@ int32_t main()
     FAST_IO;
     int test_case;
     cin >> test_case;
-    for (int tc = 1; tc <= test_case; tc++)
-    {
-        solve();
-    }
+    while (test_case--) solve();
 }
