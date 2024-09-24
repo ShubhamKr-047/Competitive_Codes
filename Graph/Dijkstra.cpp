@@ -1,7 +1,7 @@
 // in adj first -> node, second -> weight
 // dis -> vector<int> dis(n + 1, INT_MAX)
 // not applicable for -ve weights
-// Complexity :- O(E logV)
+// Complexity :- O(ElogV)
 
 void dijkstra(vector<pair<int, int>> adj[], int n, int source, vector<int> &dis)
 {
