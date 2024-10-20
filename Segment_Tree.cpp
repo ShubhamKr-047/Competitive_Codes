@@ -7,14 +7,14 @@ public:
     vector<int> seg;
 
     SGTree(int n) : n(n) { seg.resize(4 * n + 1); }
-    void build(vector<int> &arr, int orr) { build(0, 0, n - 1, arr, orr); }
+    void build(vector<int> &arr) { build(0, 0, n - 1, arr); }
     int query(int l, int r) { return query(0, 0, n - 1, l, r); }
-    void update(int i, int val, int orr) { update(0, 0, n - 1, i, val, orr); }
+    void update(int i, int val) { update(0, 0, n - 1, i, val); }
 
 private:
 
     //sg.build(0, 0, n - 1, arr);
-    void build(int ind, int low, int high, vector<int> &arr, int orr)
+    void build(int ind, int low, int high, vector<int> &arr)
     {
         if (low == high)
         {
@@ -22,10 +22,9 @@ private:
             return;
         }
         int mid = (low + high) / 2;
-        build(2 * ind + 1, low, mid, arr, !orr);
-        build(2 * ind + 2, mid + 1, high, arr, !orr);
-        if (orr) seg[ind] = seg[2 * ind + 1] | seg[2 * ind + 2];
-        else seg[ind] = seg[2 * ind + 1] ^ seg[2 * ind + 2];
+        build(2 * ind + 1, low, mid, arr);
+        build(2 * ind + 2, mid + 1, high, arr);
+        seg[ind] = min(seg[2 * ind + 1], seg[2 * ind + 2]);
     }
 
     //sg.query(0, 0, n - 1, l, r);
@@ -42,7 +41,7 @@ private:
     }
 
     //sg.update(0, 0, n - 1, index, value);
-    void update(int ind, int low, int high, int i, int val, int orr)
+    void update(int ind, int low, int high, int i, int val)
     {
         if (low == high)
         {
@@ -50,9 +49,8 @@ private:
             return;
         }
         int mid = (low + high) >> 1;
-        if (i <= mid) update(2 * ind + 1, low, mid, i, val, !orr);
-        else update(2 * ind + 2, mid + 1, high, i, val, !orr);
-        if (orr) seg[ind] = seg[2 * ind + 1] | seg[2 * ind + 2];
-        else seg[ind] = seg[2 * ind + 1] ^ seg[2 * ind + 2];
+        if (i <= mid) update(2 * ind + 1, low, mid, i, val);
+        else update(2 * ind + 2, mid + 1, high, i, val);
+        seg[ind] = min(seg[2 * ind + 1], seg[2 * ind + 2]);
     }
 };
