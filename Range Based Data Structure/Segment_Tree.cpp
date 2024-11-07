@@ -1,3 +1,6 @@
+//This is initially for 0 - based indexing
+// For one based indexing just make the initial vector 1 - based indexing
+
 class SGTree
 {
 
@@ -6,7 +9,14 @@ public:
     int n;
     vector<int> seg;
 
-    SGTree(int n) : n(n) { seg.resize(4 * n + 1); }
+    //building the SG Tree
+    SGTree(vector<int> &arr)
+    {
+        n = sz(arr);
+        seg.resize(4 * n + 1);
+        build(0, 0, n - 1, arr);
+    }
+
     void build(vector<int> &arr) { build(0, 0, n - 1, arr); }
     int query(int l, int r) { return query(0, 0, n - 1, l, r); }
     void update(int i, int val) { update(0, 0, n - 1, i, val); }
