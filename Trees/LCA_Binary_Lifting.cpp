@@ -1,7 +1,7 @@
 // This code is for 1 based nodes and indexing
 // if we do dfs(1, 1) so even if we try to jump up from 1 we will still be at one. This is ok when we need to find just lca.
 // if we need to find the kth ancestor and if for a node there are no kth ancestor above it then this code fails as it will return the root. In that case
-// use dfs(1, 0) and if we get ancestor as 0 then just return -1
+// use dfs(1, 0) and if we get ancestor as 0 then just return -1, and since we are using dfs(1, 0) in lca if condition change it to if (!is_ancestor(up[u][i] != 0 && up[u][i], v))
 
 int timer;
 vector<vector<int>> up, adj;
@@ -59,3 +59,4 @@ void solve()
     cout << lca(10, 7) << endl;
 
 }
+
