@@ -57,6 +57,6 @@ void solve()
     up.resize(n + 1, vector<int> (20));
     dfs(1, 1);
     cout << lca(10, 7) << endl;
-
 }
+
 
