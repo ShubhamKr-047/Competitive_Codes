@@ -4,6 +4,7 @@
 // use dfs(1, 0) and if we get ancestor as 0 then just return -1, and since we are using dfs(1, 0) in lca if condition change it to if (!is_ancestor(up[u][i] != 0 && up[u][i], v))
 
 int timer;
+const int LOG = 20;
 vector<vector<int>> up, adj;
 vector<int> time_in, time_out;
 
@@ -16,7 +17,7 @@ void dfs(int node, int par)
 {
     time_in[node] = timer++;
     up[node][0] = par;
-    for (int i = 1; i < 20; i++) up[node][i] = up[up[node][i - 1]][i - 1];
+    for (int i = 1; i < LOG; i++) up[node][i] = up[up[node][i - 1]][i - 1];
     for (int &child : adj[node])
     {
         if (child == par) continue;
@@ -29,7 +30,7 @@ int lca(int u, int v)
 {
     if (is_ancestor(u, v)) return u;
     if (is_ancestor(v, u)) return v;
-    for (int i = 19; i >= 0; i--)
+    for (int i = LOG - 1; i >= 0; i--)
     {
         if (!is_ancestor(up[u][i], v))
         {
@@ -54,9 +55,10 @@ void solve()
     timer = 1;
     time_in.resize(n + 1);
     time_out.resize(n + 1);
-    up.resize(n + 1, vector<int> (20));
+    up.resize(n + 1, vector<int> (LOG));
     dfs(1, 1);
     cout << lca(10, 7) << endl;
 }
+
 
 
