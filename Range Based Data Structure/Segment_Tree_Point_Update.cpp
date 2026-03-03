@@ -7,6 +7,7 @@ class SGTree
 public:
     int n;
     vector<int> seg;
+
     SGTree(vector<int> &arr)
     {
         n = sz(arr);
@@ -55,4 +56,5 @@ private:
         seg[ind] = min(seg[2 * ind + 1], seg[2 * ind + 2]);
     }
 };
+
 
