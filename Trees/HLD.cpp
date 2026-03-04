@@ -136,9 +136,7 @@ int main()
         int op, a, b;
         cin >> op >> a >> b;
         if (op == 1) st.update(pos[a], b);
-        else
-        {
-            cout << path_max(a, b, st) << " ";
-        }
+        else cout << path_max(a, b, st) << " ";
     }
+
 }
